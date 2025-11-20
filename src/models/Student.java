@@ -10,12 +10,38 @@ public class Student {
     public Student() {
     }
 
-    public Student(long id, String fullName, int age, String nameGroup, double price) {
-        this.id = id;
+
+
+    public Student(String idStr, String fullName, String ageStr, String nameGroup, String priceStr) {
+
+
+        try {
+
+            this.id = Long.parseLong(idStr);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Id DOljen bit Chislom");
+            this.id = 0;
+        }
+
         this.fullName = fullName;
-        this.age = age;
+
+
+        try {
+            this.age = Integer.parseInt(ageStr);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Vozrast  DOljen bit Chislom");
+            this.age = 0;
+        }
+
         this.nameGroup = nameGroup;
-        this.price = price;
+
+
+        try {
+            this.price = Double.parseDouble(priceStr);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: price DOljen bit Chislom");
+            this.price = 0.0;
+        }
     }
 
     public long getId() {
